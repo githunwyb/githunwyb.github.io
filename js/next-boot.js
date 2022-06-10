@@ -3,6 +3,8 @@
 NexT.boot = {};
 
 NexT.boot.registerEvents = function() {
+  
+  codeUnfold()
 
   NexT.utils.registerScrollPercent();
   NexT.utils.registerCanIUseTag();
