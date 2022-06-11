@@ -21,27 +21,35 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="关于本人 本人是口胡选手。  本人目前是 xxs。  本人目前还在摸鱼，没有搞 whk。   关于 blog首先，本 blog 是置顶 blog，所以前面会有 “[置顶]”，前面带有 “[算法]”的 blog 仅指本人的学习笔记，并没有算法和数据结构之分。 还有就是，你可以在最后看见一些奇怪的东西，如果你不知道怎么用，可以尝试按下 F12，打开 “Console”，然后 Ctrl + v 再按 E">
+    <meta name="description" content="思想1. 介绍Trie 树是一种能够高效的存储和使用字符串集合的一种东西。 2. 手动实现Trie 树究竟是什么东西呢？让我们通过存储一个字符串集合来直观的了解它。 已知我们要存储这样的字符串集合： 123abcdabfgaifff 那么我们一个一个的来存储，第一个存储时，Trie 树是这样的：  可以看出，Trie 树的存储实质上是建立在一棵树上，我们可以建立一个虚点为整棵树的根节点，然后再建立">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎来到 _Alexande_ 的博客">
-<meta property="og:url" content="http://example.com/2022/06/11/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Alexande-%E7%9A%84%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="浅谈 Trie 树">
+<meta property="og:url" content="http://example.com/2022/06/11/%E6%B5%85%E8%B0%88-Trie-%E6%A0%91/index.html">
 <meta property="og:site_name" content="_Alexande_&#39;s blog">
-<meta property="og:description" content="关于本人 本人是口胡选手。  本人目前是 xxs。  本人目前还在摸鱼，没有搞 whk。   关于 blog首先，本 blog 是置顶 blog，所以前面会有 “[置顶]”，前面带有 “[算法]”的 blog 仅指本人的学习笔记，并没有算法和数据结构之分。 还有就是，你可以在最后看见一些奇怪的东西，如果你不知道怎么用，可以尝试按下 F12，打开 “Console”，然后 Ctrl + v 再按 E">
+<meta property="og:description" content="思想1. 介绍Trie 树是一种能够高效的存储和使用字符串集合的一种东西。 2. 手动实现Trie 树究竟是什么东西呢？让我们通过存储一个字符串集合来直观的了解它。 已知我们要存储这样的字符串集合： 123abcdabfgaifff 那么我们一个一个的来存储，第一个存储时，Trie 树是这样的：  可以看出，Trie 树的存储实质上是建立在一棵树上，我们可以建立一个虚点为整棵树的根节点，然后再建立">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-11T06:05:01.000Z">
-<meta property="article:modified_time" content="2022-06-11T07:38:42.514Z">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ef0nurmj.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/tm9zekqt.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/7dkuv4ds.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/6eapz6jd.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dlqrjehg.png">
+<meta property="article:published_time" content="2022-06-11T09:16:11.000Z">
+<meta property="article:modified_time" content="2022-06-11T09:18:49.164Z">
 <meta property="article:author" content="_Alexande_">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="Trie 树">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ef0nurmj.png">
 
 
-<link rel="canonical" href="http://example.com/2022/06/11/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Alexande-%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="http://example.com/2022/06/11/%E6%B5%85%E8%B0%88-Trie-%E6%A0%91/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/06/11/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Alexande-%E7%9A%84%E5%8D%9A%E5%AE%A2/","path":"2022/06/11/欢迎来到-Alexande-的博客/","title":"欢迎来到 _Alexande_ 的博客"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/06/11/%E6%B5%85%E8%B0%88-Trie-%E6%A0%91/","path":"2022/06/11/浅谈-Trie-树/","title":"浅谈 Trie 树"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>欢迎来到 _Alexande_ 的博客 | _Alexande_'s blog</title>
+<title>浅谈 Trie 树 | _Alexande_'s blog</title>
   
 
 
@@ -143,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E4%BA%BA"><span class="nav-number">1.</span> <span class="nav-text">关于本人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-blog"><span class="nav-number">2.</span> <span class="nav-text">关于 blog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E4%BB%A5%E4%B8%8A"><span class="nav-number">3.</span> <span class="nav-text">关于以上</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E6%83%B3"><span class="nav-number">1.</span> <span class="nav-text">思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">1. 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">2. 手动实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">时空复杂度分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98%E6%8E%A8%E8%8D%90%E5%8F%8A%E8%AE%B2%E8%A7%A3"><span class="nav-number">4.</span> <span class="nav-text">例题推荐及讲解</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -203,7 +211,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/11/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Alexande-%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/11/%E6%B5%85%E8%B0%88-Trie-%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -216,12 +224,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="欢迎来到 _Alexande_ 的博客 | _Alexande_'s blog">
+      <meta itemprop="name" content="浅谈 Trie 树 | _Alexande_'s blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          欢迎来到 _Alexande_ 的博客
+          浅谈 Trie 树
         </h1>
 
         <div class="post-meta-container">
@@ -233,7 +241,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-11 14:05:01 / Modified: 15:38:42" itemprop="dateCreated datePublished" datetime="2022-06-11T14:05:01+08:00">2022-06-11</time>
+      <time title="Created: 2022-06-11 17:16:11 / Modified: 17:18:49" itemprop="dateCreated datePublished" datetime="2022-06-11T17:16:11+08:00">2022-06-11</time>
     </span>
 
   
@@ -246,20 +254,45 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="关于本人"><a href="#关于本人" class="headerlink" title="关于本人"></a>关于本人</h2><ul>
-<li><p>本人是口胡选手。</p>
+        <h1 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><p>Trie 树是一种能够<strong>高效</strong>的存储和使用字符串<strong>集合</strong>的一种东西。</p>
+<h2 id="2-手动实现"><a href="#2-手动实现" class="headerlink" title="2. 手动实现"></a>2. 手动实现</h2><p>Trie 树究竟是什么东西呢？让我们通过存储一个字符串集合来直观的了解它。</p>
+<p>已知我们要存储这样的字符串集合：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abcd</span><br><span class="line">abfg</span><br><span class="line">aifff</span><br></pre></td></tr></table></figure>
+<p>那么我们一个一个的来存储，第一个存储时，Trie 树是这样的：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ef0nurmj.png" alt=""></p>
+<p>可以看出，Trie 树的存储实质上是建立在一棵树上，我们可以建立一个虚点为整棵树的根节点，然后再建立每个节点。然后建立第二个字符串：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/tm9zekqt.png" alt=""></p>
+<p>我们可以发现，<code>abfg</code> 的前面两个字符 <code>ab</code> 跟第一个字符串的和在一起了，这就是它省空间的秘诀：相同的字符可以和在一起。</p>
+<p>然后再加入最后一个字符串，效果如下：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/7dkuv4ds.png" alt=""></p>
+<p>为了以后找字符串是否出现过，我们在字符串结尾的地方打上一个标记，一定要打：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/6eapz6jd.png" alt=""></p>
+<p>存储的原理就讲到这，接下来我们讲查询。</p>
+<p>那个 $\color{red}{gou}$ 就有大用处了。</p>
+<p>此时，假设我们查询的字符串为 <code>abfg</code>，我们要查询它是否存在。</p>
+<p>此时我们的查询过程如下：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/dlqrjehg.png" alt=""></p>
+<p>此时我们到最后<strong>一定</strong>要确定是否有标记，否则当一个查询字符串是现有字符串前缀的时候就会出错。</p>
+<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><p>这里给出的是一道题的模板，可以学习一下我的 Trie 树风格，别问我，我跟 $yxc$ 学的（$Acwing$ 的大老总）。</p>
+<p>这里以 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2580">$\color{black}\texttt{P2580}$</a> 为例，讲一下模板代码。</p>
+<p>插入部分：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">I</span><span class="params">(string s)</span></span>&#123;    <span class="comment">// s 表示向 Trie 树里插入的字符串</span></span><br><span class="line">  <span class="type">int</span> p = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">    <span class="type">int</span> u = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span>(!son[p][u])&#123;    <span class="comment">// 如果有儿子</span></span><br><span class="line">      son[p][u] = ++idx;    <span class="comment">// son 表示的是儿子节点编号</span></span><br><span class="line">    &#125;</span><br><span class="line">    p = son[p][u];   <span class="comment">// 类似递归</span></span><br><span class="line">  &#125;</span><br><span class="line">  v[p] = <span class="literal">true</span>;     <span class="comment">//v 用来打标记</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询部分：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Q</span><span class="params">(string s)</span></span>&#123;   <span class="comment">// 表示查询的字符串。</span></span><br><span class="line">  <span class="type">int</span> p = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">    <span class="type">int</span> u = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span>(!son[p][u])&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;    <span class="comment">//如果没有孩子，直接退出</span></span><br><span class="line">    &#125;</span><br><span class="line">    p = son[p][u];    <span class="comment">// 递归</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> v[p];   <span class="comment">// 如果这个字符串有，返回 true，否则返回 false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是感觉很好打。</p>
+<p>作者建议：深度理解代码后，打模板代码 $3$ 到 $5$ 遍，就基本可以掌握了。</p>
+<h1 id="时空复杂度分析"><a href="#时空复杂度分析" class="headerlink" title="时空复杂度分析"></a>时空复杂度分析</h1><p>我们可以发现，在最坏的时候，我们要建立的节点数为所有字符串的长度之和，所以定义 $l$ 为所有字符串的长度之和，那么建立 Trie 树的时间复杂度是 $O(l)$ 的。</p>
+<p>那么同样可以推出，在询问时，时间复杂度是查询的字符串长度（也可能比这个小）。</p>
+<h1 id="例题推荐及讲解"><a href="#例题推荐及讲解" class="headerlink" title="例题推荐及讲解"></a>例题推荐及讲解</h1><p>在这里推荐一道很好的题目：<a href="luogu.com.cn/problem/P5149">$\color{black}\texttt{P5149}$</a>。</p>
+<p>这道题的做法就是，用 Trie 树对排完位的座位进行标号，最后再去求逆序对数列就行了。</p>
+<p>逆序对可以用两个东西求：</p>
+<ol>
+<li><p>树状数组。</p>
 </li>
-<li><p>本人目前是 xxs。</p>
+<li><p>归并排序。</p>
 </li>
-<li><p>本人目前还在摸鱼，没有搞 whk。</p>
-</li>
-</ul>
-<h2 id="关于-blog"><a href="#关于-blog" class="headerlink" title="关于 blog"></a>关于 blog</h2><p>首先，本 blog 是置顶 blog，所以前面会有 “[置顶]”，前面带有 “[算法]”的 blog 仅指<strong>本人的学习笔记，并没有算法和数据结构之分。</strong></p>
-<p>还有就是，你可以在最后看见一些奇怪的东西，如果你不知道怎么用，可以尝试按下 F12，打开 “Console”，然后 Ctrl + v 再按 Enter。</p>
-<p>如果你希望在 blog 中寻找一些东西，你可以按下 F3 并输入你想搜索的东西。</p>
-<p>然后，如果你发现有些东西写错了，可以私信 _Alexande_。</p>
-<p>最后，希望你快乐的阅读本蒟蒻的 blog。</p>
-<h2 id="关于以上"><a href="#关于以上" class="headerlink" title="关于以上"></a>关于以上</h2><p>以上介绍为洛谷搬运而来，所以有些许不准确！</p>
+</ol>
+<p>本博客就讲到这里，拜拜！</p>
 
     </div>
 
@@ -277,7 +310,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://example.com/2022/06/11/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Alexande-%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="欢迎来到 _Alexande_ 的博客">http://example.com/2022/06/11/欢迎来到-Alexande-的博客/</a>
+      <a href="http://example.com/2022/06/11/%E6%B5%85%E8%B0%88-Trie-%E6%A0%91/" title="浅谈 Trie 树">http://example.com/2022/06/11/浅谈-Trie-树/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -285,18 +318,22 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+              <a href="/tags/Trie-%E6%A0%91/" rel="tag"># Trie 树</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/10/%E6%B5%85%E8%B0%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="prev" title="浅谈树状数组">
-                  <i class="fa fa-chevron-left"></i> 浅谈树状数组
+                <a href="/2022/06/11/%E6%B5%85%E8%B0%88%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="prev" title="浅谈最短路">
+                  <i class="fa fa-chevron-left"></i> 浅谈最短路
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/11/%E6%B5%85%E8%B0%88%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" rel="next" title="浅谈树链剖分">
-                  浅谈树链剖分 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/06/11/%E6%B5%85%E8%B0%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="next" title="浅谈最小生成树">
+                  浅谈最小生成树 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
