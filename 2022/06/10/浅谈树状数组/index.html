@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前置知识 了解二进制以及性质。  了解计算机中的原码，反码，补码。   这些是学会树状数组的必备功，如果不会可以上网搜一下（反正不会耽误你多少时间）。 树状数组是什么？ 树状数组是一种可以高效（相比于线段树常数小一点）解决单点查询，区间修改或者单点修改，区间查询。  树状数组是一种利用二进制拆分思想的高级数据结构   以上是它的简介。 树状数组的思想树状数组（Binary Indexed Tree">
+    <meta name="description" content="前置知识 了解二进制以及性质。  了解计算机中的原码，反码，补码。   这些是学会树状数组的必备功，如果不会可以上网搜一下（反正不会耽误你多少时间）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈树状数组">
 <meta property="og:url" content="http://example.com/2022/06/10/%E6%B5%85%E8%B0%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="_Alexande_&#39;s blog">
-<meta property="og:description" content="前置知识 了解二进制以及性质。  了解计算机中的原码，反码，补码。   这些是学会树状数组的必备功，如果不会可以上网搜一下（反正不会耽误你多少时间）。 树状数组是什么？ 树状数组是一种可以高效（相比于线段树常数小一点）解决单点查询，区间修改或者单点修改，区间查询。  树状数组是一种利用二进制拆分思想的高级数据结构   以上是它的简介。 树状数组的思想树状数组（Binary Indexed Tree">
+<meta property="og:description" content="前置知识 了解二进制以及性质。  了解计算机中的原码，反码，补码。   这些是学会树状数组的必备功，如果不会可以上网搜一下（反正不会耽误你多少时间）。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-10T12:26:52.000Z">
-<meta property="article:modified_time" content="2022-06-10T13:17:05.556Z">
+<meta property="article:modified_time" content="2022-06-11T06:10:25.539Z">
 <meta property="article:author" content="_Alexande_">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="树状数组">
@@ -160,13 +160,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -233,9 +233,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-10 20:26:52 / Modified: 21:17:05" itemprop="dateCreated datePublished" datetime="2022-06-10T20:26:52+08:00">2022-06-10</time>
+      <time title="Created: 2022-06-10 20:26:52" itemprop="dateCreated datePublished" datetime="2022-06-10T20:26:52+08:00">2022-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-11 14:10:25" itemprop="dateModified" datetime="2022-06-11T14:10:25+08:00">2022-06-11</time>
     </span>
 
   
@@ -255,6 +261,8 @@
 </li>
 </ol>
 <p>这些是学会树状数组的必备功，如果不会可以上网搜一下（<del>反正不会耽误你多少时间</del>）。</p>
+<span id="more"></span>
+
 <h2 id="树状数组是什么？"><a href="#树状数组是什么？" class="headerlink" title="树状数组是什么？"></a>树状数组是什么？</h2><ul>
 <li><p>树状数组是一种可以高效（相比于线段树常数小一点）解决单点查询，区间修改或者单点修改，区间查询。</p>
 </li>
@@ -334,6 +342,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/06/11/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-Alexande-%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="next" title="欢迎来到 _Alexande_ 的博客">
+                  欢迎来到 _Alexande_ 的博客 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
