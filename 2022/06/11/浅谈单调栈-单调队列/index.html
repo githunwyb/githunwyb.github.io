@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前置知识需要掌握用 $\text{STL}$ 和手写的方式来实现栈与队列。 因为作者的代码风格会变换。 何为单调栈（队列）指的是当栈（队列）里的元素有单调性时的栈（队列）。 单调栈可能你会觉得单调栈很难理解，其实只要动手画画图就可以了。 我们手动画一个图（以 P5788 为例）：  那么我们循环到第一个元素时，由于栈里面没有比他小的数，所以直接弹入：  此时我们栈里的元素是一个结构体 $\text">
+    <meta name="description" content="前置知识需要掌握用 $\text{STL}$ 和手写的方式来实现栈与队列。 因为作者的代码风格会变换。 何为单调栈（队列）指的是当栈（队列）里的元素有单调性时的栈（队列）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈单调栈 &amp; 单调队列">
 <meta property="og:url" content="http://example.com/2022/06/11/%E6%B5%85%E8%B0%88%E5%8D%95%E8%B0%83%E6%A0%88-%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/index.html">
 <meta property="og:site_name" content="_Alexande_&#39;s blog">
-<meta property="og:description" content="前置知识需要掌握用 $\text{STL}$ 和手写的方式来实现栈与队列。 因为作者的代码风格会变换。 何为单调栈（队列）指的是当栈（队列）里的元素有单调性时的栈（队列）。 单调栈可能你会觉得单调栈很难理解，其实只要动手画画图就可以了。 我们手动画一个图（以 P5788 为例）：  那么我们循环到第一个元素时，由于栈里面没有比他小的数，所以直接弹入：  此时我们栈里的元素是一个结构体 $\text">
+<meta property="og:description" content="前置知识需要掌握用 $\text{STL}$ 和手写的方式来实现栈与队列。 因为作者的代码风格会变换。 何为单调栈（队列）指的是当栈（队列）里的元素有单调性时的栈（队列）。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/u2tylmdw.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/6m5pbbm4.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/vnkd8x83.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/hprd75fj.png">
 <meta property="article:published_time" content="2022-06-11T09:13:54.000Z">
-<meta property="article:modified_time" content="2022-06-11T09:14:33.315Z">
+<meta property="article:modified_time" content="2022-06-11T09:22:10.085Z">
 <meta property="article:author" content="_Alexande_">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="栈">
@@ -243,7 +243,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-11 17:13:54 / Modified: 17:14:33" itemprop="dateCreated datePublished" datetime="2022-06-11T17:13:54+08:00">2022-06-11</time>
+      <time title="Created: 2022-06-11 17:13:54 / Modified: 17:22:10" itemprop="dateCreated datePublished" datetime="2022-06-11T17:13:54+08:00">2022-06-11</time>
     </span>
 
   
@@ -259,6 +259,7 @@
         <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>需要掌握用 $\text{STL}$ 和手写的方式来实现栈与队列。</p>
 <p>因为作者的代码风格会变换。</p>
 <h2 id="何为单调栈（队列）"><a href="#何为单调栈（队列）" class="headerlink" title="何为单调栈（队列）"></a>何为单调栈（队列）</h2><p>指的是当栈（队列）里的元素有单调性时的栈（队列）。</p>
+<span id="more"></span>
 <h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p>可能你会觉得单调栈很难理解，其实只要动手画画图就可以了。</p>
 <p>我们手动画一个图（以 P5788 为例）：</p>
 <p><img src="https://cdn.luogu.com.cn/upload/image_hosting/u2tylmdw.png" alt=""></p>

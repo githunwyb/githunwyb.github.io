@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="注意本博客的 $\sqrt{n}$ 全部定义为向下取整。 分块是什么？分块是一种优雅的暴力。 分块的思想分块，就是把长度为 $n$ 的数列分成几个块（这里我们定义分成 $\sqrt{n}$ 个块），然后对于每个块分段解决，其普通时间复杂度（在块长为 $\sqrt{n}$ 的情况下）为 $m \sqrt{n}$，$m$ 为区间操作的个数。 首先我们要理解分块是如何分的，我们首先造一组样例： 1210">
+    <meta name="description" content="注意本博客的 $\sqrt{n}$ 全部定义为向下取整。 分块是什么？分块是一种优雅的暴力。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈分块">
 <meta property="og:url" content="http://example.com/2022/06/11/%E6%B5%85%E8%B0%88%E5%88%86%E5%9D%97/index.html">
 <meta property="og:site_name" content="_Alexande_&#39;s blog">
-<meta property="og:description" content="注意本博客的 $\sqrt{n}$ 全部定义为向下取整。 分块是什么？分块是一种优雅的暴力。 分块的思想分块，就是把长度为 $n$ 的数列分成几个块（这里我们定义分成 $\sqrt{n}$ 个块），然后对于每个块分段解决，其普通时间复杂度（在块长为 $\sqrt{n}$ 的情况下）为 $m \sqrt{n}$，$m$ 为区间操作的个数。 首先我们要理解分块是如何分的，我们首先造一组样例： 1210">
+<meta property="og:description" content="注意本博客的 $\sqrt{n}$ 全部定义为向下取整。 分块是什么？分块是一种优雅的暴力。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-11T09:12:44.000Z">
-<meta property="article:modified_time" content="2022-06-11T09:13:22.558Z">
+<meta property="article:modified_time" content="2022-06-11T09:22:05.056Z">
 <meta property="article:author" content="_Alexande_">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="分块">
@@ -235,7 +235,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-11 17:12:44 / Modified: 17:13:22" itemprop="dateCreated datePublished" datetime="2022-06-11T17:12:44+08:00">2022-06-11</time>
+      <time title="Created: 2022-06-11 17:12:44 / Modified: 17:22:05" itemprop="dateCreated datePublished" datetime="2022-06-11T17:12:44+08:00">2022-06-11</time>
     </span>
 
   
@@ -250,6 +250,7 @@
     <div class="post-body" itemprop="articleBody">
         <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>本博客的 $\sqrt{n}$ 全部定义为向下取整。</p>
 <h2 id="分块是什么？"><a href="#分块是什么？" class="headerlink" title="分块是什么？"></a>分块是什么？</h2><p>分块是一种优雅的暴力。</p>
+<span id="more"></span>
 <h2 id="分块的思想"><a href="#分块的思想" class="headerlink" title="分块的思想"></a>分块的思想</h2><p>分块，就是把长度为 $n$ 的数列分成几个块（这里我们定义分成 $\sqrt{n}$ 个块），然后对于每个块分段解决，其<strong>普通</strong>时间复杂度（在块长为 $\sqrt{n}$ 的情况下）为 $m \sqrt{n}$，$m$ 为<strong>区间</strong>操作的个数。</p>
 <p>首先我们要理解分块是如何分的，我们首先造一组样例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1 4 2 8 4 6 2 9 7 3</span><br></pre></td></tr></table></figure>
