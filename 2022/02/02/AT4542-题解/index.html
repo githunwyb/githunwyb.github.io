@@ -21,28 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="提前声明AT 的题目最后要换行，否则会 WA。">
+    <meta name="description" content="思路看到 $n \le 16$，想到状压 DP。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AT1224 题解">
-<meta property="og:url" content="http://example.com/2022/06/12/AT1224-%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:title" content="AT4542 题解">
+<meta property="og:url" content="http://example.com/2022/02/02/AT4542-%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="_Alexande_&#39;s blog">
-<meta property="og:description" content="提前声明AT 的题目最后要换行，否则会 WA。">
+<meta property="og:description" content="思路看到 $n \le 16$，想到状压 DP。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-12T03:17:10.000Z">
-<meta property="article:modified_time" content="2022-06-12T03:42:00.457Z">
+<meta property="article:published_time" content="2022-02-02T10:49:43.000Z">
+<meta property="article:modified_time" content="2022-06-21T10:53:10.192Z">
 <meta property="article:author" content="_Alexande_">
-<meta property="article:tag" content="前缀和">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="状压 DP">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/06/12/AT1224-%E9%A2%98%E8%A7%A3/">
+<link rel="canonical" href="http://example.com/2022/02/02/AT4542-%E9%A2%98%E8%A7%A3/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/06/12/AT1224-%E9%A2%98%E8%A7%A3/","path":"2022/06/12/AT1224-题解/","title":"AT1224 题解"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/02/02/AT4542-%E9%A2%98%E8%A7%A3/","path":"2022/02/02/AT4542-题解/","title":"AT4542 题解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AT1224 题解 | _Alexande_'s blog</title>
+<title>AT4542 题解 | _Alexande_'s blog</title>
   
 
 
@@ -150,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%89%8D%E5%A3%B0%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">提前声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +225,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/12/AT1224-%E9%A2%98%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/02/AT4542-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -237,12 +238,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="AT1224 题解 | _Alexande_'s blog">
+      <meta itemprop="name" content="AT4542 题解 | _Alexande_'s blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AT1224 题解
+          AT4542 题解
         </h1>
 
         <div class="post-meta-container">
@@ -252,9 +253,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-12 11:17:10 / Modified: 11:42:00" itemprop="dateCreated datePublished" datetime="2022-06-12T11:17:10+08:00">2022-06-12</time>
+      <time title="Created: 2022-02-02 18:49:43" itemprop="dateCreated datePublished" datetime="2022-02-02T18:49:43+08:00">2022-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-21 18:53:10" itemprop="dateModified" datetime="2022-06-21T18:53:10+08:00">2022-06-21</time>
     </span>
 
   
@@ -266,8 +273,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2022/06/12/AT1224-%E9%A2%98%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/06/12/AT1224-题解/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2022/02/02/AT4542-%E9%A2%98%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/02/02/AT4542-题解/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -281,14 +288,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="提前声明"><a href="#提前声明" class="headerlink" title="提前声明"></a>提前声明</h2><p>AT 的题目最后要换行，否则会 WA。</p>
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>看到 $n \le 16$，想到状压 DP。</p>
 <span id="more"></span>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>本人在考场上写不出正确思路，就用宝石串的方法写了一下。</p>
-<p>我们发现，在宝石串这道题中我们是将两种颜色分别设为 $1$ 和 $-1$。但是，在本题中并不能这样进行变化，因为可能会出现错误情况。这里提供一种转化方式：</p>
-<p>J 变为 $100000$，O 变为 $200001$，I 变为 $-300001$。</p>
-<p>这样就可以避免错误情况了。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long    <span class="comment">//注意，n 个 200001 相加会爆 int</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, maxi = <span class="number">-1e9</span>;</span><br><span class="line"><span class="type">char</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line">map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; vis;     <span class="comment">//因为有负数，所以用 map</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">&#x27;J&#x27;</span>)&#123;    <span class="comment">//如上所述</span></span><br><span class="line">			f[i] = f[i - <span class="number">1</span>] + <span class="number">100000</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">&#x27;O&#x27;</span>)&#123;</span><br><span class="line">			f[i] = f[i - <span class="number">1</span>] + <span class="number">200001</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[i] == <span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">			f[i] = f[i - <span class="number">1</span>] - <span class="number">300001</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--)&#123;     <span class="comment">//记录每个 f[i] 最早出现的下标</span></span><br><span class="line">		vis[(<span class="type">long</span> <span class="type">long</span>)f[i]] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	vis[(<span class="type">long</span> <span class="type">long</span>)<span class="number">0</span>] = <span class="number">0</span>;    <span class="comment">//这里注意 0 最早出现在下标为 0 的位置</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		maxi = <span class="built_in">max</span>(maxi, i - vis[(<span class="type">long</span> <span class="type">long</span>)f[i]]);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; (maxi == <span class="number">-1e9</span> ? <span class="number">0</span> : maxi) &lt;&lt; endl;    <span class="comment">//如果是 1e9 输出 0 就行了（其实不写也没关系）</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>显然可以设 $f_s$ 为对集合 $s$ 进行划分，可能得到的最大得分，其中 $s$ 为二进制数。</p>
+<p>显然有状态转移方程：</p>
+<script type="math/tex; mode=display">f_i = \max\limits_{i \subseteq s}\{f_{i - j} + score(j)\}</script><p>其中 $score(j)$ 表示集合 $j$ 里的分数。</p>
+<p>空间复杂度：$O(2^n)$。</p>
+<p>时间复杂度：预处理 $O(n^2 \times 2^n)$，其中可以用这么多时间处理每一个集合的分数。转移 $O(4^n)$。</p>
+<p>显然我们可以只用枚举 $s$ 的子集即可，并不需要花 $O(2^n)$ 的时间来枚举，只需枚举 $1$ 即可。</p>
+<p>因此时间复杂度降到了 $O(\sum\limits_{k=0}^{n}C^k_n2^k)$，根据某某二项式定理可以得出时间复杂度为 $O(3^n)$，可以过啦！</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>Code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&#x27;\n&#x27;</span>;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N][N], C[<span class="number">1</span> &lt;&lt; N], f[<span class="number">1</span> &lt;&lt; N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!s)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(~f[s])&#123;</span><br><span class="line">    <span class="keyword">return</span> f[s];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = s; i; i = (i - <span class="number">1</span>) &amp; s)&#123;   <span class="comment">//枚举每一个 1 是否选</span></span><br><span class="line">    f[s] = <span class="built_in">max</span>(f[s], <span class="built_in">dfs</span>(s - i) + C[i]);   <span class="comment">//转移</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f[s];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">      cin &gt;&gt; a[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> s = <span class="number">1</span>; s &lt; <span class="number">1</span> &lt;&lt; n; s++)&#123;  <span class="comment">//预处理每个集合的分数</span></span><br><span class="line">    f[s] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(s &gt;&gt; i &amp; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(s &gt;&gt; j &amp; <span class="number">1</span>)&#123;</span><br><span class="line">            C[s] += a[i][j];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  cout &lt;&lt; <span class="built_in">dfs</span>((<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>);   <span class="comment">//注意要 -1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">Solve</span>();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -305,7 +315,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://example.com/2022/06/12/AT1224-%E9%A2%98%E8%A7%A3/" title="AT1224 题解">http://example.com/2022/06/12/AT1224-题解/</a>
+      <a href="http://example.com/2022/02/02/AT4542-%E9%A2%98%E8%A7%A3/" title="AT4542 题解">http://example.com/2022/02/02/AT4542-题解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -314,20 +324,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag"># 前缀和</a>
+              <a href="/tags/DP/" rel="tag"># DP</a>
+              <a href="/tags/%E7%8A%B6%E5%8E%8B-DP/" rel="tag"># 状压 DP</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/12/P8267-%E9%A2%98%E8%A7%A3/" rel="prev" title="P8267 题解">
-                  <i class="fa fa-chevron-left"></i> P8267 题解
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/12/UVA11090-%E9%A2%98%E8%A7%A3/" rel="next" title="UVA11090 题解">
-                  UVA11090 题解 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/06/08/%E6%B5%85%E8%B0%88%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="next" title="浅谈线段树">
+                  浅谈线段树 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
